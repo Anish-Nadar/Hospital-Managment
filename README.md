@@ -1,21 +1,27 @@
-# Hospital Management System
+# 🏥 Hospital Management System
+
+[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Django Version](https://img.shields.io/badge/Django-5.0-green.svg)](https://www.djangoproject.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-orange.svg)](https://github.com/Anish-Nadar/Hospital-Managment/blob/main/CONTRIBUTING.md)
 
 A Django-based web application for managing hospital operations, including patient registration, doctor management, appointments, and contact forms.
 
-## Features
+## ✨ Features
 
-- **Patient Management**: Register patients, manage profiles, and handle logins.
-- **Doctor Management**: View doctor profiles with images and specialties.
-- **Appointment Booking**: Patients can book appointments with doctors.
-- **Contact Forms**: Submit inquiries or feedback.
-- **Admin Panel**: Django admin interface for managing data.
-- **Responsive Design**: Basic styling with CSS.
+- 🩺 **Patient Management**: Register patients, manage profiles, and handle logins.
+- 👨‍⚕️ **Doctor Management**: View doctor profiles with images and specialties.
+- 📅 **Appointment Booking**: Patients can book appointments with doctors.
+- 📧 **Contact Forms**: Submit inquiries or feedback.
+- 🔧 **Admin Panel**: Django admin interface for managing data.
+- 🎨 **Responsive Design**: Basic styling with CSS.
 
 ## Installation
 
 ### Prerequisites
-- Python 3.10–3.12 (recommended: 3.12)
-- Git
+- 🐍 Python 3.10–3.12 (recommended: 3.12)
+- 📚 Git
 
 ### Steps
 1. **Clone the repository**:
