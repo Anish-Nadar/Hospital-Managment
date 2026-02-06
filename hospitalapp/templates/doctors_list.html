@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors List</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9fbfd;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .doctors-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        .doctor-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: row;
+            height: 200px;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .doctor-details {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .doctor-details h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+
+        .doctor-details p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .doctor-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    margin: 10px 20px 10px 0;
+    border-radius: 12px;
+}
+
+        .no-doctors {
+            text-align: center;
+            color: #888;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Doctors</h1>
+
+    <form method="get">
+        <input type="text" name="specialization" placeholder="Specialization" value="{{ request.GET.specialization }}">
+        <input type="number" name="experience" placeholder="Min Experience (years)" value="{{ request.GET.experience }}">
+        <button type="submit">Filter</button>
+    </form>
+
+    <div class="doctors-container">
+        {% for doctor in doctors %}
+            <div class="doctor-card">
+                <div class="doctor-details">
+                    <h3>{{ doctor.name }}</h3>
+                    <p>Specialization: {{ doctor.specialization }}</p>
+                    <p>Experience: {{ doctor.experience }} years</p>
+                </div>
+                {% if doctor.image %}
+                    <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}" class="doctor-image">
+                {% else %}
+                    <img src="{% static 'default_doctor.jpg' %}" alt="No Image" class="doctor-image">
+                {% endif %}
+            </div>
+        {% empty %}
+            <p class="no-doctors">No doctors found for your search.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

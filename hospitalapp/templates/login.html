@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Login - HealWell</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="booking-form-container">
+        <h2>Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="top-right-btn">Login</button>
+        </form>
+        {% if form.errors %}
+            <p style="color:red;">Invalid username or password</p>
+        {% endif %}
+    </div>
+</body>
+</html>
